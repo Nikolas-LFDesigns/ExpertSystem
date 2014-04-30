@@ -139,6 +139,8 @@
             this.countryComboBox = new System.Windows.Forms.ComboBox();
             this.label38 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.insuranceCheckBox = new System.Windows.Forms.CheckBox();
             this.healthComboBox = new System.Windows.Forms.ComboBox();
             this.label39 = new System.Windows.Forms.Label();
             this.numberDaysTextBox = new System.Windows.Forms.TextBox();
@@ -274,6 +276,8 @@
             this.knowledgeOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.toolStripContainer = new System.Windows.Forms.ToolStripContainer();
+            this.label4 = new System.Windows.Forms.Label();
+            this.insuranceLabel = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -335,7 +339,7 @@
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.fileToolStripMenuItem.Text = "Файл";
             // 
             // openToolStripMenuItem
@@ -344,20 +348,20 @@
             this.hotelsToolStripMenuItem,
             this.knowledgeBaseToolStripMenuItem});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.openToolStripMenuItem.Text = "Открыть";
             // 
             // hotelsToolStripMenuItem
             // 
             this.hotelsToolStripMenuItem.Name = "hotelsToolStripMenuItem";
-            this.hotelsToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.hotelsToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.hotelsToolStripMenuItem.Text = "Информация об отелях";
             this.hotelsToolStripMenuItem.Click += new System.EventHandler(this.hotelsToolStripMenuItem_Click);
             // 
             // knowledgeBaseToolStripMenuItem
             // 
             this.knowledgeBaseToolStripMenuItem.Name = "knowledgeBaseToolStripMenuItem";
-            this.knowledgeBaseToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.knowledgeBaseToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.knowledgeBaseToolStripMenuItem.Text = "База знаний";
             this.knowledgeBaseToolStripMenuItem.Click += new System.EventHandler(this.knowledgeBaseToolStripMenuItem_Click);
             // 
@@ -365,20 +369,20 @@
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.saveAsToolStripMenuItem.Text = "Сохранить";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(175, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.exitToolStripMenuItem.Text = "Выход";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -387,13 +391,13 @@
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clearToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.editToolStripMenuItem.Text = "Правка";
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.clearToolStripMenuItem.Text = "Очистить анкету";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
@@ -404,26 +408,26 @@
             this.toolStripSeparator2,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.helpToolStripMenuItem.Text = "Справка";
             // 
             // viewHelpToolStripMenuItem
             // 
             this.viewHelpToolStripMenuItem.Name = "viewHelpToolStripMenuItem";
             this.viewHelpToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.viewHelpToolStripMenuItem.Text = "Посмотреть справку";
             this.viewHelpToolStripMenuItem.Click += new System.EventHandler(this.viewHelpToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(205, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(204, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.aboutToolStripMenuItem.Text = "О программе";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -439,7 +443,7 @@
             this.helpToolStripButton});
             this.toolStrip.Location = new System.Drawing.Point(3, 0);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(110, 25);
+            this.toolStrip.Size = new System.Drawing.Size(94, 25);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip";
             // 
@@ -462,21 +466,21 @@
             this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
             this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripButton.Name = "openToolStripButton";
-            this.openToolStripButton.Size = new System.Drawing.Size(32, 22);
+            this.openToolStripButton.Size = new System.Drawing.Size(16, 22);
             this.openToolStripButton.Text = "О&ткрыть";
             this.openToolStripButton.ButtonClick += new System.EventHandler(this.knowledgeBaseToolStripMenuItem_Click);
             // 
             // hotelsToolStripMenuItem1
             // 
             this.hotelsToolStripMenuItem1.Name = "hotelsToolStripMenuItem1";
-            this.hotelsToolStripMenuItem1.Size = new System.Drawing.Size(202, 22);
+            this.hotelsToolStripMenuItem1.Size = new System.Drawing.Size(204, 22);
             this.hotelsToolStripMenuItem1.Text = "Информация об отелях";
             this.hotelsToolStripMenuItem1.Click += new System.EventHandler(this.hotelsToolStripMenuItem_Click);
             // 
             // knowledgeBaseToolStripMenuItem1
             // 
             this.knowledgeBaseToolStripMenuItem1.Name = "knowledgeBaseToolStripMenuItem1";
-            this.knowledgeBaseToolStripMenuItem1.Size = new System.Drawing.Size(202, 22);
+            this.knowledgeBaseToolStripMenuItem1.Size = new System.Drawing.Size(204, 22);
             this.knowledgeBaseToolStripMenuItem1.Text = "База знаний";
             this.knowledgeBaseToolStripMenuItem1.Click += new System.EventHandler(this.knowledgeBaseToolStripMenuItem_Click);
             // 
@@ -655,11 +659,11 @@
             this.groupBox5.Controls.Add(this.label37);
             this.groupBox5.Controls.Add(this.countryComboBox);
             this.groupBox5.Controls.Add(this.label38);
-            this.groupBox5.Location = new System.Drawing.Point(5, 112);
+            this.groupBox5.Location = new System.Drawing.Point(5, 130);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox5.Size = new System.Drawing.Size(309, 977);
+            this.groupBox5.Size = new System.Drawing.Size(309, 975);
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Критерии отеля";
@@ -1573,6 +1577,8 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label2);
+            this.groupBox6.Controls.Add(this.insuranceCheckBox);
             this.groupBox6.Controls.Add(this.healthComboBox);
             this.groupBox6.Controls.Add(this.label39);
             this.groupBox6.Controls.Add(this.numberDaysTextBox);
@@ -1585,11 +1591,30 @@
             this.groupBox6.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox6.Size = new System.Drawing.Size(309, 103);
+            this.groupBox6.Size = new System.Drawing.Size(309, 122);
             this.groupBox6.TabIndex = 4;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "О себе";
             this.groupBox6.Click += new System.EventHandler(this.splitContainer3_Panel1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(4, 102);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.TabIndex = 90;
+            this.label2.Text = "Нужна страховка";
+            // 
+            // insuranceCheckBox
+            // 
+            this.insuranceCheckBox.AutoSize = true;
+            this.insuranceCheckBox.Location = new System.Drawing.Point(233, 103);
+            this.insuranceCheckBox.Name = "insuranceCheckBox";
+            this.insuranceCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.insuranceCheckBox.TabIndex = 89;
+            this.insuranceCheckBox.UseVisualStyleBackColor = true;
             // 
             // healthComboBox
             // 
@@ -1710,6 +1735,8 @@
             // splitContainer4.Panel1
             // 
             this.splitContainer4.Panel1.AutoScroll = true;
+            this.splitContainer4.Panel1.Controls.Add(this.label4);
+            this.splitContainer4.Panel1.Controls.Add(this.insuranceLabel);
             this.splitContainer4.Panel1.Controls.Add(this.childrenServiceTextBox);
             this.splitContainer4.Panel1.Controls.Add(this.label1);
             this.splitContainer4.Panel1.Controls.Add(this.hotelServiceTextBox);
@@ -1752,7 +1779,7 @@
             // 
             // childrenServiceTextBox
             // 
-            this.childrenServiceTextBox.Location = new System.Drawing.Point(186, 330);
+            this.childrenServiceTextBox.Location = new System.Drawing.Point(186, 347);
             this.childrenServiceTextBox.Multiline = true;
             this.childrenServiceTextBox.Name = "childrenServiceTextBox";
             this.childrenServiceTextBox.ReadOnly = true;
@@ -1771,7 +1798,7 @@
             // 
             // hotelServiceTextBox
             // 
-            this.hotelServiceTextBox.Location = new System.Drawing.Point(186, 288);
+            this.hotelServiceTextBox.Location = new System.Drawing.Point(186, 305);
             this.hotelServiceTextBox.Multiline = true;
             this.hotelServiceTextBox.Name = "hotelServiceTextBox";
             this.hotelServiceTextBox.ReadOnly = true;
@@ -1790,7 +1817,7 @@
             // 
             // roomServiceTextBox
             // 
-            this.roomServiceTextBox.Location = new System.Drawing.Point(186, 246);
+            this.roomServiceTextBox.Location = new System.Drawing.Point(186, 263);
             this.roomServiceTextBox.Multiline = true;
             this.roomServiceTextBox.Name = "roomServiceTextBox";
             this.roomServiceTextBox.ReadOnly = true;
@@ -1810,7 +1837,7 @@
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(8, 333);
+            this.label58.Location = new System.Drawing.Point(8, 350);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(96, 13);
             this.label58.TabIndex = 28;
@@ -1828,7 +1855,7 @@
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(8, 291);
+            this.label56.Location = new System.Drawing.Point(8, 308);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(84, 13);
             this.label56.TabIndex = 26;
@@ -1846,7 +1873,7 @@
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(8, 249);
+            this.label54.Location = new System.Drawing.Point(8, 266);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(93, 13);
             this.label54.TabIndex = 24;
@@ -1864,7 +1891,7 @@
             // nutritionLabel
             // 
             this.nutritionLabel.AutoSize = true;
-            this.nutritionLabel.Location = new System.Drawing.Point(183, 229);
+            this.nutritionLabel.Location = new System.Drawing.Point(183, 246);
             this.nutritionLabel.Name = "nutritionLabel";
             this.nutritionLabel.Size = new System.Drawing.Size(107, 13);
             this.nutritionLabel.TabIndex = 23;
@@ -1882,7 +1909,7 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(8, 229);
+            this.label52.Location = new System.Drawing.Point(8, 246);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(50, 13);
             this.label52.TabIndex = 22;
@@ -1900,7 +1927,7 @@
             // buildingLabel
             // 
             this.buildingLabel.AutoSize = true;
-            this.buildingLabel.Location = new System.Drawing.Point(183, 209);
+            this.buildingLabel.Location = new System.Drawing.Point(183, 226);
             this.buildingLabel.Name = "buildingLabel";
             this.buildingLabel.Size = new System.Drawing.Size(126, 13);
             this.buildingLabel.TabIndex = 21;
@@ -1909,7 +1936,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 89);
+            this.label9.Location = new System.Drawing.Point(8, 106);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(43, 13);
             this.label9.TabIndex = 8;
@@ -1918,7 +1945,7 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(8, 209);
+            this.label50.Location = new System.Drawing.Point(8, 226);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(65, 13);
             this.label50.TabIndex = 20;
@@ -1927,7 +1954,7 @@
             // countryLabel
             // 
             this.countryLabel.AutoSize = true;
-            this.countryLabel.Location = new System.Drawing.Point(183, 89);
+            this.countryLabel.Location = new System.Drawing.Point(183, 106);
             this.countryLabel.Name = "countryLabel";
             this.countryLabel.Size = new System.Drawing.Size(25, 13);
             this.countryLabel.TabIndex = 9;
@@ -1936,7 +1963,7 @@
             // serviceLevelLabel
             // 
             this.serviceLevelLabel.AutoSize = true;
-            this.serviceLevelLabel.Location = new System.Drawing.Point(183, 189);
+            this.serviceLevelLabel.Location = new System.Drawing.Point(183, 206);
             this.serviceLevelLabel.Name = "serviceLevelLabel";
             this.serviceLevelLabel.Size = new System.Drawing.Size(52, 13);
             this.serviceLevelLabel.TabIndex = 19;
@@ -1945,7 +1972,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 109);
+            this.label11.Location = new System.Drawing.Point(8, 126);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(43, 13);
             this.label11.TabIndex = 10;
@@ -1954,7 +1981,7 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(8, 189);
+            this.label48.Location = new System.Drawing.Point(8, 206);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(127, 13);
             this.label48.TabIndex = 18;
@@ -1963,7 +1990,7 @@
             // regionLabel
             // 
             this.regionLabel.AutoSize = true;
-            this.regionLabel.Location = new System.Drawing.Point(183, 109);
+            this.regionLabel.Location = new System.Drawing.Point(183, 126);
             this.regionLabel.Name = "regionLabel";
             this.regionLabel.Size = new System.Drawing.Size(25, 13);
             this.regionLabel.TabIndex = 11;
@@ -1972,7 +1999,7 @@
             // appointmentLabel
             // 
             this.appointmentLabel.AutoSize = true;
-            this.appointmentLabel.Location = new System.Drawing.Point(183, 169);
+            this.appointmentLabel.Location = new System.Drawing.Point(183, 186);
             this.appointmentLabel.Name = "appointmentLabel";
             this.appointmentLabel.Size = new System.Drawing.Size(67, 13);
             this.appointmentLabel.TabIndex = 17;
@@ -1981,7 +2008,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 129);
+            this.label13.Location = new System.Drawing.Point(8, 146);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(45, 13);
             this.label13.TabIndex = 12;
@@ -1990,7 +2017,7 @@
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(8, 169);
+            this.label46.Location = new System.Drawing.Point(8, 186);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(68, 13);
             this.label46.TabIndex = 16;
@@ -1999,7 +2026,7 @@
             // climateLabel
             // 
             this.climateLabel.AutoSize = true;
-            this.climateLabel.Location = new System.Drawing.Point(183, 129);
+            this.climateLabel.Location = new System.Drawing.Point(183, 146);
             this.climateLabel.Name = "climateLabel";
             this.climateLabel.Size = new System.Drawing.Size(80, 13);
             this.climateLabel.TabIndex = 13;
@@ -2008,7 +2035,7 @@
             // locationLabel
             // 
             this.locationLabel.AutoSize = true;
-            this.locationLabel.Location = new System.Drawing.Point(183, 149);
+            this.locationLabel.Location = new System.Drawing.Point(183, 166);
             this.locationLabel.Name = "locationLabel";
             this.locationLabel.Size = new System.Drawing.Size(121, 13);
             this.locationLabel.TabIndex = 15;
@@ -2017,7 +2044,7 @@
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(8, 149);
+            this.label44.Location = new System.Drawing.Point(8, 166);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(82, 13);
             this.label44.TabIndex = 14;
@@ -3040,7 +3067,7 @@
             // hotelsOpenFileDialog
             // 
             this.hotelsOpenFileDialog.Filter = "Книга Excel 97-2003 (*.xls)|*.xls|Книга Excel (*.xlsx)|*.xlsx|Все файлы Excel (*." +
-                "xls; *.xlsx)|*.xls; *.xlsx";
+    "xls; *.xlsx)|*.xls; *.xlsx";
             this.hotelsOpenFileDialog.FilterIndex = 3;
             this.hotelsOpenFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.hotelsOpenFileDialog_FileOk);
             // 
@@ -3074,6 +3101,24 @@
             // toolStripContainer.TopToolStripPanel
             // 
             this.toolStripContainer.TopToolStripPanel.Controls.Add(this.toolStrip);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 87);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "Страховка";
+            // 
+            // insuranceLabel
+            // 
+            this.insuranceLabel.AutoSize = true;
+            this.insuranceLabel.Location = new System.Drawing.Point(183, 87);
+            this.insuranceLabel.Name = "insuranceLabel";
+            this.insuranceLabel.Size = new System.Drawing.Size(25, 13);
+            this.insuranceLabel.TabIndex = 33;
+            this.insuranceLabel.Text = "все";
             // 
             // Main
             // 
@@ -3380,6 +3425,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.ToolStripContainer toolStripContainer;
+        private System.Windows.Forms.CheckBox insuranceCheckBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label insuranceLabel;
     }
 }
 

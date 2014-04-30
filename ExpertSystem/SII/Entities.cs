@@ -13,6 +13,7 @@ namespace ExpertSystem.SII
         public int age;
         public int holidaysLength;
         public int price;
+        public string insurance;
         public string country;
         public string region;
         public string destination;

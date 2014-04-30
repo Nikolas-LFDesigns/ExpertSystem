@@ -22,8 +22,10 @@ namespace ExpertSystem.SII
         private Dictionary<string, Dictionary<string, double>> climateAgeKU;
         private Dictionary<string, Dictionary<string, double>> destinationHealthKU;
         private Dictionary<string, Dictionary<string, double>> destinationAgeKU;
+        private Dictionary<string, Dictionary<string, double>> destinationInsuranceKU;
         private Dictionary<string, Dictionary<string, double>> mealHealthKU;
         private Dictionary<string, Dictionary<string, double>> mealAgeKU;
+        private Dictionary<string, Dictionary<string, double>> insuranceHealthKU;
 
         //Климат
         private Dictionary<Region, string> climate  = new Dictionary<Region, string>();
@@ -114,8 +116,10 @@ namespace ExpertSystem.SII
             climateAgeKU = getKUFromTable(tables[1]);
             destinationHealthKU = getKUFromTable(tables[2]);
             destinationAgeKU = getKUFromTable(tables[3]);
-            mealHealthKU = getKUFromTable(tables[4]);
-            mealAgeKU = getKUFromTable(tables[5]);
+            destinationInsuranceKU = getKUFromTable(tables[4]);
+            mealHealthKU = getKUFromTable(tables[5]);
+            mealAgeKU = getKUFromTable(tables[6]);
+            insuranceHealthKU = getKUFromTable(tables[7]);
 
         }
 
@@ -252,6 +256,14 @@ namespace ExpertSystem.SII
             }
         }
 
+        public Dictionary<string, Dictionary<string, double>> DestinationInsuranceKU
+        {
+            get
+            {
+                return destinationInsuranceKU;
+            }
+        }
+
         public Dictionary<string, Dictionary<string, double>> MealHealthKU
         {
             get
@@ -268,6 +280,13 @@ namespace ExpertSystem.SII
             }
         }
 
+        public Dictionary<string, Dictionary<string, double>> InsuranceHealthKU
+        {
+            get
+            {
+                return insuranceHealthKU;
+            }
+        }
 
         internal HotelFindResult[] Find(Questionnaire questionnaire)
         {
