@@ -133,6 +133,16 @@ namespace ExpertSystem.SII
                                     continue;
                                 }
                                 break;
+                            case "Страховка":
+                                if (!productions[prodNum].Arg2.Equals(questionnaire.insurance))
+                                {
+                                    continue;
+                                }
+                                else
+                                {
+                                    ku *= Double.Parse(productions[prodNum].KU);
+                                }
+                                break;
                             case "Расположение":
                                 if (!productions[prodNum].Arg2.Equals(questionnaire.location))
                                 {

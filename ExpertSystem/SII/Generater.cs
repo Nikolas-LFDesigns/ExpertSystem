@@ -888,6 +888,42 @@ namespace ExpertSystem.SII
                 string dis = hotelTree.Root.Children[i].Children[j].Children[k].NodeName;
 
                 QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node;
+                node = new QuestNode("DIN" + i + "_" + j + "_" + k);
+
+                link = new QuestLink();
+
+                link.KU = II.CurentII.DestinationInsuranceKU[dis]["Есть"] + "";
+                link.Arg = "Страховка";
+                link.Function = "=";
+                link.Link = "Есть";
+                link.Node = node;
+                cn.Links.Add(link);
+
+                link = new QuestLink();
+
+                link.KU = II.CurentII.DestinationInsuranceKU[dis]["Нет"] + "";
+                link.Arg = "Страховка";
+                link.Function = "=";
+                link.Link = "Нет";
+                link.Node = node;
+                cn.Links.Add(link);
+
+                questNodeList_2.Add(node);
+
+            }
+
+            questNodeList = new List<QuestNode>();
+
+            for (int z = 0; z < questNodeList_2.Count; z++)
+            {
+                string[] sbstr = questNodeList_2[z].Name.Substring(3).Split('_');
+                int i = Int32.Parse(sbstr[0]);
+                int j = Int32.Parse(sbstr[1]);
+                int k = Int32.Parse(sbstr[2]);
+
+                string dis = hotelTree.Root.Children[i].Children[j].Children[k].NodeName;
+
+                QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node;
                 node = new QuestNode("DIZ" + i + "_" + j + "_" + k);
 
                 link = new QuestLink();
@@ -935,22 +971,22 @@ namespace ExpertSystem.SII
                 link.Node = node;
                 cn.Links.Add(link);
 
-                questNodeList_2.Add(node);
+                questNodeList.Add(node);
 
             }
 
-            questNodeList = new List<QuestNode>();
+            questNodeList_2 = new List<QuestNode>();
 
-            for (int z = 0; z < questNodeList_2.Count; z++)
+            for (int z = 0; z < questNodeList.Count; z++)
             {
-                string[] sbstr = questNodeList_2[z].Name.Substring(3).Split('_');
+                string[] sbstr = questNodeList[z].Name.Substring(3).Split('_');
                 int i = Int32.Parse(sbstr[0]);
                 int j = Int32.Parse(sbstr[1]);
                 int k = Int32.Parse(sbstr[2]);
 
 
 
-                QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node;
+                QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node;
                 node = new QuestNode("DIV" + i + "_" + j + "_" + k);
 
                 link = new QuestLink();
@@ -963,15 +999,15 @@ namespace ExpertSystem.SII
 
                 cn.Links.Add(link);
 
-                questNodeList.Add(node);
+                questNodeList_2.Add(node);
 
             }
 
             List<QuestNode> questNodeList_1 = new List<QuestNode>();
 
-            for (int z = 0; z < questNodeList.Count; z++)
+            for (int z = 0; z < questNodeList_2.Count; z++)
             {
-                string[] sbstr = questNodeList[z].Name.Substring(3).Split('_');
+                string[] sbstr = questNodeList_2[z].Name.Substring(3).Split('_');
                 int i = Int32.Parse(sbstr[0]);
                 int j = Int32.Parse(sbstr[1]);
                 int k = Int32.Parse(sbstr[2]);
@@ -979,7 +1015,7 @@ namespace ExpertSystem.SII
 
                 for (int l = 0; l < hotelTree.Root.Children[i].Children[j].Children[k].Children.Count; l++)
                 {
-                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node;
+                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[0].Node;
                     node = new QuestNode("LOC" + i + "_" + j + "_" + k + "_" + l);
 
                     link = new QuestLink();
@@ -1010,7 +1046,7 @@ namespace ExpertSystem.SII
 
                 for (int m = 0; m < hotelTree.Root.Children[i].Children[j].Children[k].Children[l].Children.Count; m++)
                 {
-                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[l].Node;
+                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[0].Node.Links[l].Node;
                     node = new QuestNode("LVL" + i + "_" + j + "_" + k + "_" + l + "_" + m);
 
                     link = new QuestLink();
@@ -1041,7 +1077,7 @@ namespace ExpertSystem.SII
 
                 for (int n = 0; n < hotelTree.Root.Children[i].Children[j].Children[k].Children[l].Children[m].Children.Count; n++)
                 {
-                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node;
+                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node;
                     node = new QuestNode("TPY" + i + "_" + j + "_" + k + "_" + l + "_" + m + "_" + n);
 
                     link = new QuestLink();
@@ -1074,7 +1110,7 @@ namespace ExpertSystem.SII
 
                 for (int o = 0; o < hotelTree.Root.Children[i].Children[j].Children[k].Children[l].Children[m].Children[n].Children.Count; o++)
                 {
-                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node;
+                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node;
                     node = new QuestNode("MLS" + i + "_" + j + "_" + k + "_" + l + "_" + m + "_" + n + "_" + o);
 
                     link = new QuestLink();
@@ -1105,7 +1141,7 @@ namespace ExpertSystem.SII
                 int o = Int32.Parse(sbstr[6]);
 
 
-                QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node.Links[o].Node;
+                QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node.Links[o].Node;
                 node = new QuestNode("MLZ" + i + "_" + j + "_" + k + "_" + l + "_" + m + "_" + n + "_" + o);
 
                 string meals = hotelTree.Root.Children[i].Children[j].Children[k].Children[l].Children[m].Children[n].Children[o].NodeName;
@@ -1173,7 +1209,7 @@ namespace ExpertSystem.SII
                 int o = Int32.Parse(sbstr[6]);
 
 
-                QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node.Links[o].Node.Links[0].Node;
+                QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node.Links[o].Node.Links[0].Node;
                 node = new QuestNode("MLV" + i + "_" + j + "_" + k + "_" + l + "_" + m + "_" + n + "_" + o);
 
                 link = new QuestLink();
@@ -1206,7 +1242,7 @@ namespace ExpertSystem.SII
 
                 for (int p = 0; p < hotelTree.Root.Children[i].Children[j].Children[k].Children[l].Children[m].Children[n].Children[o].Children.Count; p++)
                 {
-                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node.Links[o].Node.Links[0].Node.Links[0].Node;
+                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node.Links[o].Node.Links[0].Node.Links[0].Node;
                     node = new QuestNode("UHT" + i + "_" + j + "_" + k + "_" + l + "_" + m + "_" + n + "_" + o + "_" + p);
 
                     link = new QuestLink();
@@ -1239,7 +1275,7 @@ namespace ExpertSystem.SII
 
                 for (int q = 0; q < hotelTree.Root.Children[i].Children[j].Children[k].Children[l].Children[m].Children[n].Children[o].Children[p].Children.Count; q++)
                 {
-                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node.Links[o].Node.Links[0].Node.Links[0].Node.Links[p].Node;
+                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node.Links[o].Node.Links[0].Node.Links[0].Node.Links[p].Node;
                     node = new QuestNode("URM" + i + "_" + j + "_" + k + "_" + l + "_" + m + "_" + n + "_" + o + "_" + p + "_" + q);
 
                     link = new QuestLink();
@@ -1274,7 +1310,7 @@ namespace ExpertSystem.SII
 
                 for (int r = 0; r < hotelTree.Root.Children[i].Children[j].Children[k].Children[l].Children[m].Children[n].Children[o].Children[p].Children[q].Children.Count; r++)
                 {
-                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node.Links[o].Node.Links[0].Node.Links[0].Node.Links[p].Node.Links[q].Node;
+                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node.Links[o].Node.Links[0].Node.Links[0].Node.Links[p].Node.Links[q].Node;
                     node = new QuestNode("UCH" + i + "_" + j + "_" + k + "_" + l + "_" + m + "_" + n + "_" + o + "_" + p + "_" + q + "_" + r);
 
                     link = new QuestLink();
@@ -1310,7 +1346,7 @@ namespace ExpertSystem.SII
 
                 for (int s = 0; s < hotelTree.Root.Children[i].Children[j].Children[k].Children[l].Children[m].Children[n].Children[o].Children[p].Children[q].Children[r].Children.Count; s++)
                 {
-                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node.Links[o].Node.Links[0].Node.Links[0].Node.Links[p].Node.Links[q].Node.Links[r].Node;
+                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node.Links[o].Node.Links[0].Node.Links[0].Node.Links[p].Node.Links[q].Node.Links[r].Node;
                     node = new QuestNode("SRM" + i + "_" + j + "_" + k + "_" + l + "_" + m + "_" + n + "_" + o + "_" + p + "_" + q + "_" + r + "_" + s);
 
                     link = new QuestLink();
@@ -1347,7 +1383,7 @@ namespace ExpertSystem.SII
 
                 for (int t = 0; t < hotelTree.Root.Children[i].Children[j].Children[k].Children[l].Children[m].Children[n].Children[o].Children[p].Children[q].Children[r].Children[s].Children.Count; t++)
                 {
-                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node.Links[o].Node.Links[0].Node.Links[0].Node.Links[p].Node.Links[q].Node.Links[r].Node.Links[s].Node;
+                    QuestNode cn = tree.Root.Links[i].Node.Links[j].Node.Links[0].Node.Links[0].Node.Links[k].Node.Links[0].Node.Links[0].Node.Links[0].Node.Links[l].Node.Links[m].Node.Links[n].Node.Links[o].Node.Links[0].Node.Links[0].Node.Links[p].Node.Links[q].Node.Links[r].Node.Links[s].Node;
                     node = new QuestNode(hotelTree.Root.Children[i].Children[j].Children[k].Children[l].Children[m].Children[n].Children[o].Children[p].Children[q].Children[r].Children[s].Children[t].NodeName);
 
                     link = new QuestLink();
