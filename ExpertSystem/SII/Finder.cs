@@ -74,8 +74,10 @@ namespace ExpertSystem.SII
                                     continue;
                                 }
                                 else
-                                {                                    
+                                {
                                     ku *= Double.Parse(productions[prodNum].KU);
+                                    ku *= AddInsuranceKU(questionnaire, productions[prodNum].Arg1,
+                                        productions[prodNum].Arg2);
                                 }
                                 break;
                             case "Возраст":
@@ -231,6 +233,25 @@ namespace ExpertSystem.SII
                 }
             }
         }
+
+        /// <summary>
+        /// Так как страховка не входит в понятие отель, данная функция
+        /// выставляет коэффициент уверенности по страховке
+        /// для входящих в отель параметров
+        /// </summary>
+        /// <param name="userDefines">анкета</param>
+        /// <param name="arg1">параметр проверки</param>
+        /// <param name="arg2">значение параметра проверки</param>
+        /// <returns>КУ, выставленное по параметру</returns>
+        private double AddInsuranceKU(Questionnaire userDefines, string arg1,string arg2)
+        {
+            switch (arg1){
+                case "Здоровье":
+                    return II.CurentII.InsuranceHealthKU[userDefines.insurance][arg2];
+            }
+            return 1;
+        }
+
         /// <summary>
         /// Просматривает отель на предмет соответствия введенным данным.
         /// </summary>
