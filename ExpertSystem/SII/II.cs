@@ -19,6 +19,7 @@ namespace ExpertSystem.SII
         private string climatesFilename = Environment.CurrentDirectory + @"\files\climate.xlsx";
         private string priceFilename = Environment.CurrentDirectory + @"\files\price.xlsx";
         private string blacklistFilename = Environment.CurrentDirectory + @"\files\countries_blacklist.csv";
+        private string insuranceTablesFilename = Environment.CurrentDirectory + @"\files\insurance_tables.xlsx";
 
         //КУ
         private Dictionary<string, Dictionary<string, double>> climateHealthKU;
@@ -40,6 +41,8 @@ namespace ExpertSystem.SII
         private Dictionary<string, int> price = new Dictionary<string, int>();
         //черный список
         private List<Country> countriesBlacklist;
+        // коэффициенты прибавки страховки в зависимости от возраста 
+        private Dictionary<string, Dictionary<string, double>> insuranceAgeCoeffs;
 
         //Продукции
         private Generater generater = new Generater();
@@ -211,6 +214,9 @@ namespace ExpertSystem.SII
             initPrice(priceFilename);
 
             countriesBlacklist = LoadCountriesBlacklist();
+            //Загрузка и парсинг коэффициентов страховки
+            string[][,] table = getExcelTables(insuranceTablesFilename);
+            insuranceAgeCoeffs = getKUFromTable(table[0]);
         }
 
         public static II CurentII
@@ -351,7 +357,27 @@ namespace ExpertSystem.SII
                 ServiceCost += this.price[questionnaire.hotelServices[i]];
             }
 
+            ServiceCost += CalculateInsurance(questionnaire);
             return finder.Find(questionnaire, productions);
+        }
+
+        /// <summary>
+        /// Считает страховку по параметрам пользователя
+        /// </summary>
+        /// <param name="userDefines">параметры пользователя</param>
+        /// <returns>страховая сумма</returns>
+        private int CalculateInsurance(Questionnaire userDefines)
+        {
+            double value = 0;
+            if (userDefines.insurance == Values.InsuranceYes)
+            {
+                int x = userDefines.holidaysLength;
+                value = 194.81*x+241.27; // сумма по дням (C) Ингосстрах
+                int ageK = userDefines.age/5;
+                double koeff = insuranceAgeCoeffs["ставка страхования"][(5*ageK)+""];
+                value *= koeff; // сумма по возрасту
+            }
+            return (int)Math.Round(value);
         }
 
         public string BZ
