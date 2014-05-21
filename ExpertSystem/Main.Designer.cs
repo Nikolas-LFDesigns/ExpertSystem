@@ -659,7 +659,7 @@
             this.groupBox5.Controls.Add(this.label37);
             this.groupBox5.Controls.Add(this.countryComboBox);
             this.groupBox5.Controls.Add(this.label38);
-            this.groupBox5.Location = new System.Drawing.Point(5, 130);
+            this.groupBox5.Location = new System.Drawing.Point(5, 156);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
@@ -1591,7 +1591,7 @@
             this.groupBox6.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox6.Size = new System.Drawing.Size(309, 122);
+            this.groupBox6.Size = new System.Drawing.Size(309, 146);
             this.groupBox6.TabIndex = 4;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "О себе";
@@ -1599,18 +1599,18 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
+            this.label2.AutoEllipsis = true;
             this.label2.Location = new System.Drawing.Point(4, 102);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.Size = new System.Drawing.Size(150, 40);
             this.label2.TabIndex = 90;
-            this.label2.Text = "Нужна страховка";
+            this.label2.Text = "Нужна страховка (обязательна в шенгенской зоне)";
             // 
             // insuranceCheckBox
             // 
             this.insuranceCheckBox.AutoSize = true;
-            this.insuranceCheckBox.Location = new System.Drawing.Point(233, 103);
+            this.insuranceCheckBox.Location = new System.Drawing.Point(233, 117);
             this.insuranceCheckBox.Name = "insuranceCheckBox";
             this.insuranceCheckBox.Size = new System.Drawing.Size(15, 14);
             this.insuranceCheckBox.TabIndex = 89;
@@ -3101,7 +3101,7 @@
             // toolStripContainer.TopToolStripPanel
             // 
             this.toolStripContainer.TopToolStripPanel.Controls.Add(this.toolStrip);
-            // 
+            //
             // label4
             // 
             this.label4.AutoSize = true;
@@ -3119,7 +3119,7 @@
             this.insuranceLabel.Size = new System.Drawing.Size(25, 13);
             this.insuranceLabel.TabIndex = 33;
             this.insuranceLabel.Text = "все";
-            // 
+            //
             // Main
             // 
             this.AcceptButton = this.searchButton;

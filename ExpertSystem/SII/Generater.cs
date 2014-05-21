@@ -892,19 +892,19 @@ namespace ExpertSystem.SII
 
                 link = new QuestLink();
 
-                link.KU = II.CurentII.DestinationInsuranceKU[dis]["Есть"] + "";
+                link.KU = II.CurentII.DestinationInsuranceKU[dis][Values.InsuranceYes] + "";
                 link.Arg = "Страховка";
                 link.Function = "=";
-                link.Link = "Есть";
+                link.Link = Values.InsuranceYes;
                 link.Node = node;
                 cn.Links.Add(link);
 
                 link = new QuestLink();
 
-                link.KU = II.CurentII.DestinationInsuranceKU[dis]["Нет"] + "";
+                link.KU = II.CurentII.DestinationInsuranceKU[dis][Values.InsuranceNo] + "";
                 link.Arg = "Страховка";
                 link.Function = "=";
-                link.Link = "Нет";
+                link.Link = Values.InsuranceNo;
                 link.Node = node;
                 cn.Links.Add(link);
 

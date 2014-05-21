@@ -204,10 +204,14 @@ namespace ExpertSystem.SII
                                 ku *= ku_pr;
                                 break;
                             case "Отель":
-                                Console.WriteLine(productions[prodNum].StateResult + " " + ku);
+                                string hotelname = productions[prodNum].StateResult;
+                                ku *= PostProcessResult(hotelname, questionnaire);
+                                if (ku == 0)
+                                    continue;
+                                Console.WriteLine(hotelname + " " + ku);
                                 HotelFindResult hotelFindResult = new HotelFindResult();
                                 Hotel hotel = new Hotel();
-                                hotel.name = productions[prodNum].StateResult;
+                                hotel.name = hotelname;
                                 hotelFindResult.Hotel = hotel;
                                 hotelFindResult.KU = ku;
                                 hotelFindResult.Productions = listProduction.ToArray();
@@ -226,6 +230,39 @@ namespace ExpertSystem.SII
                     }
                 }
             }
+        }
+        /// <summary>
+        /// Просматривает отель на предмет соответствия введенным данным.
+        /// </summary>
+        /// <param name="hotelname">имя отеля</param>
+        /// <param name="userDefines">анкета</param>
+        /// <returns>добавочный КУ отеля после проверки</returns>
+        private int PostProcessResult(string hotelname, Questionnaire userDefines)
+        {
+            bool hasInsurance = userDefines.insurance == Values.InsuranceYes; 
+            // проверка на страну, где обязательно наличие страховки
+            if (!hasInsurance)
+            {
+                Hotel current = findHotel(hotelname);
+                if (current != null)
+                {
+                    string cname = current.region.Country.Name;
+                    IEnumerable<Country> inBlacklistQuery =
+                        from c in II.CurentII.CountriesBlacklist
+                        where c.Name == cname
+                        select c;
+                    List<Country> inBlacklistQueryList = inBlacklistQuery.ToList();
+                    if (inBlacklistQuery == null)
+                        return 1;
+                    if (inBlacklistQuery.Count() > 0)
+                        return 0;
+                    else
+                        return 1;
+                }
+                else
+                    return 0;
+            }
+            return 1;
         }
 
 

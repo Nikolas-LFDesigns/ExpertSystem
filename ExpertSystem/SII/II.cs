@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace ExpertSystem.SII
@@ -16,6 +18,7 @@ namespace ExpertSystem.SII
         private string kuFilename = Environment.CurrentDirectory + @"\files\ku_tables.xlsx";
         private string climatesFilename = Environment.CurrentDirectory + @"\files\climate.xlsx";
         private string priceFilename = Environment.CurrentDirectory + @"\files\price.xlsx";
+        private string blacklistFilename = Environment.CurrentDirectory + @"\files\countries_blacklist.csv";
 
         //КУ
         private Dictionary<string, Dictionary<string, double>> climateHealthKU;
@@ -35,6 +38,8 @@ namespace ExpertSystem.SII
         private Dictionary<string, Dictionary<string, Region>> regions = new Dictionary<string, Dictionary<string, Region>>();
         //Цены
         private Dictionary<string, int> price = new Dictionary<string, int>();
+        //черный список
+        private List<Country> countriesBlacklist;
 
         //Продукции
         private Generater generater = new Generater();
@@ -123,6 +128,36 @@ namespace ExpertSystem.SII
 
         }
 
+
+        /// <summary>
+        /// Загружает список стран, в которые невозможен въезд без страховки
+        /// </summary>
+        /// <returns></returns>
+        private List<Country> LoadCountriesBlacklist()
+        {
+            List<Country> blacklist = new List<Country>();
+
+            string line;
+            System.IO.StreamReader file = null;
+            try
+            {
+                file = new System.IO.StreamReader(blacklistFilename,Encoding.GetEncoding("windows-1251"),true);
+                file.ReadLine(); // пропускаем заголовок
+                while ((line = file.ReadLine()) != null)
+                {
+                    blacklist.Add(Country.GetCountry(line));
+                }
+            }
+            catch (IOException) { }
+            finally
+            {
+                if (file!=null)
+                    file.Close();
+            }
+
+            return blacklist;
+        }
+
         private Dictionary<Region, string> getClimateFromTable(string[,] table)
         {
 
@@ -174,6 +209,8 @@ namespace ExpertSystem.SII
             initClimates(climatesFilename);
             //Загрузка и парсинг файла с ценами
             initPrice(priceFilename);
+
+            countriesBlacklist = LoadCountriesBlacklist();
         }
 
         public static II CurentII
@@ -205,6 +242,14 @@ namespace ExpertSystem.SII
             get
             {
                 return regions;
+            }
+        }
+
+        public List<Country> CountriesBlacklist
+        {
+            get
+            {
+                return countriesBlacklist;
             }
         }
 

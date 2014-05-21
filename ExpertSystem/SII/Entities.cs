@@ -7,6 +7,13 @@ namespace ExpertSystem.SII
 {
     //Общее
 
+    // константные строки-значения
+    public class Values
+    {
+        public const string InsuranceYes = "Есть";
+        public const string InsuranceNo = "Нет";
+    }
+
     public class Questionnaire
     {
 

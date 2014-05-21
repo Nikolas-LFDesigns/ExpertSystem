@@ -124,6 +124,9 @@
     <None Include="files\climate.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="files\countries_blacklist.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="files\hotels.xlsx" />
     <None Include="files\ku_tables.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

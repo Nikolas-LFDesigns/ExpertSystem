@@ -207,7 +207,7 @@ namespace ExpertSystem
             questionnaire.region = this.regionComboBox.Text;
             questionnaire.roomServices = roomService.FindAll(p => p.Checked).Select(x => x.Text.ToLower()).ToArray();
             questionnaire.type = this.buildingComboBox.Text.ToLower();
-            questionnaire.insurance = this.insuranceCheckBox.Checked ? "Есть" : "Нет";
+            questionnaire.insurance = this.insuranceCheckBox.Checked ? Values.InsuranceYes : Values.InsuranceNo;
             return questionnaire;
         }
 
@@ -226,7 +226,7 @@ namespace ExpertSystem
             this.moneyLabel.Text = int.Parse(this.moneyTextBox.Text).ToString();
             this.numberDaysLabel.Text = int.Parse(this.numberDaysTextBox.Text).ToString();
             this.healthLabel.Text = this.healthComboBox.Text.ToLower();
-            this.insuranceLabel.Text = this.insuranceCheckBox.Checked ? "Есть" : "Нет";
+            this.insuranceLabel.Text = this.insuranceCheckBox.Checked ? Values.InsuranceYes : Values.InsuranceNo;
             this.countryLabel.Text = this.countryComboBox.Text;
             this.regionLabel.Text = this.regionComboBox.Text;
             this.climateLabel.Text = this.climateComboBox.Text.ToLower();
