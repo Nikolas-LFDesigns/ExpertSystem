@@ -213,6 +213,7 @@ namespace ExpertSystem
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            this.detailRichTextBox.Text = "";
             result = ii.Find(getQuestionnaire());
 
             dataGridView.RowCount = result.Length;
@@ -244,6 +245,7 @@ namespace ExpertSystem
 
             this.multiPaneControl.SelectedPage = this.multiPanePage2;
 
+            this.detailRichTextBox.Text = II.CurentII.GetSystemMessages();
             if(result.Length > 0)
                 this.dataGridView_CellEnter(this.dataGridView, new DataGridViewCellEventArgs(0, 0));
             MessageBox.Show("Найдено " + result.Length.ToString() + " отель (-ля, -лей)", "Информация о результате",
@@ -406,7 +408,8 @@ namespace ExpertSystem
                     Production pr = result[e.RowIndex].Productions[i];
                     res += "ЕСЛИ " + pr.State + " И " + pr.Arg1 + " " + pr.Function + " " + pr.Arg2 + " ТО " + pr.StateResult + " (КУ=" + pr.KU + ")\n";
                 }
-            this.detailRichTextBox.Text = res;
+            this.detailRichTextBox.Text = II.CurentII.GetSystemMessages()+"\n";
+            this.detailRichTextBox.Text += res;
         }
     }
 }

@@ -366,5 +366,10 @@ namespace ExpertSystem.SII
                 productions = generater.GetProductions(bz);
             }
         }
+
+        internal string GetSystemMessages()
+        {
+            return finder.SystemMessage;
+        }
     }
 }

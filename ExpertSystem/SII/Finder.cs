@@ -8,7 +8,14 @@ namespace ExpertSystem.SII
     class Finder
     {
 
+        public string SystemMessage { get; private set; }
+
         private List<HotelFindResult> hotelFindResults;
+
+        public Finder()
+        {
+            SystemMessage = "";
+        }
 
         private bool contain(string p, string[] p_2)
         {
@@ -247,7 +254,11 @@ namespace ExpertSystem.SII
         {
             switch (arg1){
                 case "Здоровье":
-                    return II.CurentII.InsuranceHealthKU[userDefines.insurance][arg2];
+                    double ku = II.CurentII.InsuranceHealthKU[userDefines.insurance][arg2];
+                    if (userDefines.insurance == Values.InsuranceNo && ku<1)
+                        SystemMessage += "Указанное здоровье предполагает страховку."+
+                        "Страховка не включена, уверенность в отеле снижена, КУ:"+ku+"\n";
+                    return ku;
             }
             return 1;
         }
@@ -276,7 +287,12 @@ namespace ExpertSystem.SII
                     if (inBlacklistQuery == null)
                         return 1;
                     if (inBlacklistQuery.Count() > 0)
+                    {
+                        SystemMessage += "Страна, в которой находится отель \"" + hotelname +
+                            "\" - " + cname + ", предполагает обязательную страховку, " +
+                            "поэтому он был исключен из найденных\n";
                         return 0;
+                    }
                     else
                         return 1;
                 }
@@ -301,6 +317,7 @@ namespace ExpertSystem.SII
 
         internal HotelFindResult[] Find(Questionnaire questionnaire, Production[] productions)
         {
+            SystemMessage = "";
             hotelFindResults = new List<HotelFindResult>();
             List<Production> listProduction = new List<Production>();
 
