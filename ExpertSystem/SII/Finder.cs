@@ -83,8 +83,6 @@ namespace ExpertSystem.SII
                                 else
                                 {
                                     ku *= Double.Parse(productions[prodNum].KU);
-                                    ku *= AddInsuranceKU(questionnaire, productions[prodNum].Arg1,
-                                        productions[prodNum].Arg2);
                                 }
                                 break;
                             case "Возраст":
@@ -246,18 +244,19 @@ namespace ExpertSystem.SII
         /// выставляет коэффициент уверенности по страховке
         /// для входящих в отель параметров
         /// </summary>
+        /// <param name="hotelname">имя отеля</param>
         /// <param name="userDefines">анкета</param>
         /// <param name="arg1">параметр проверки</param>
         /// <param name="arg2">значение параметра проверки</param>
         /// <returns>КУ, выставленное по параметру</returns>
-        private double AddInsuranceKU(Questionnaire userDefines, string arg1,string arg2)
+        private double AddInsuranceKU(string hotelname,Questionnaire userDefines, string arg1,string arg2)
         {
             switch (arg1){
                 case "Здоровье":
                     double ku = II.CurentII.InsuranceHealthKU[userDefines.insurance][arg2];
                     if (userDefines.insurance == Values.InsuranceNo && ku<1)
-                        SystemMessage += "Указанное здоровье предполагает страховку."+
-                        "Страховка не включена, уверенность в отеле снижена, КУ:"+ku+"\n";
+                        SystemMessage += "Указанное здоровье предполагает страховку. "+
+                        "Страховка не включена, уверенность в отеле " + hotelname + " снижена, КУ:" + ku + "\n";
                     return ku;
             }
             return 1;
@@ -269,12 +268,14 @@ namespace ExpertSystem.SII
         /// <param name="hotelname">имя отеля</param>
         /// <param name="userDefines">анкета</param>
         /// <returns>добавочный КУ отеля после проверки</returns>
-        private int PostProcessResult(string hotelname, Questionnaire userDefines)
+        private double PostProcessResult(string hotelname, Questionnaire userDefines)
         {
+            double value = 1;
             bool hasInsurance = userDefines.insurance == Values.InsuranceYes; 
             // проверка на страну, где обязательно наличие страховки
             if (!hasInsurance)
             {
+                value = 0;
                 Hotel current = findHotel(hotelname);
                 if (current != null)
                 {
@@ -285,21 +286,19 @@ namespace ExpertSystem.SII
                         select c;
                     List<Country> inBlacklistQueryList = inBlacklistQuery.ToList();
                     if (inBlacklistQuery == null)
-                        return 1;
-                    if (inBlacklistQuery.Count() > 0)
+                        value = 1;
+                    else if (inBlacklistQuery.Count() > 0)
                     {
                         SystemMessage += "Страна, в которой находится отель \"" + hotelname +
                             "\" - " + cname + ", предполагает обязательную страховку, " +
                             "поэтому он был исключен из найденных\n";
-                        return 0;
-                    }
-                    else
-                        return 1;
+                    } else
+                        value = 1;
                 }
-                else
-                    return 0;
             }
-            return 1;
+            // добавление КУ по здоровью
+            value *= AddInsuranceKU(hotelname, userDefines, "Здоровье", userDefines.health);
+            return value;
         }
 
 
